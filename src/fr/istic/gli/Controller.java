@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 		static Model model;
 		static View view;
 		
+		int x;
+		int y;
 		
 		
 		  public Controller() {
@@ -22,18 +24,29 @@ import javax.swing.JFrame;
 		  }
 
 
+		  public int getX() {
+				return x;
+			}
 
+           public void setX(int x) {
+				this.x = x;
+			}
+			public int getY() {
+				return y;
+			}
 
+		   public void setY(int y) {
+			this.y = y;
+		    }
 
 		public static void main(String[] argv) {
 			Controller controller = new Controller();
 		    JFrame frame = new JFrame();
 		     
 		     view= new View(model);
-		    
-		    frame.getContentPane().add(view);
-		    frame.setSize(600, 500);
-		    frame.setVisible(true);
-
+		     frame.getContentPane().add(view);
+			    frame.setSize(600, 500);
+			    frame.setVisible(true);
+		     
 		  }
 		}
