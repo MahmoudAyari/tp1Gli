@@ -6,56 +6,55 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
+public class Controller {
 
-	public class Controller {
-		
-		
-		static Model model;
-		static View view;
-		
-		int x;
-		int y;
-		
-		
-		  public Controller() {
-			super();
-			model = new Model();
-			model.setName("Budget");
-			model.setColor(new Color[] {Color.black,Color.green,Color.yellow,Color.red});
-		    model.setValue(new double[]{5,33,100,15});
-		  }
+	static Model model;
+	static View view;
 
+	double x;
+	double y;
 
-		  public int getX() {
-				return x;
+	public Controller() {
+		super();
+		model = new Model();
+		model.setName("Budget");
+		model.setColor(new Color[] { Color.black, Color.green, Color.yellow, Color.red, Color.cyan });
+		model.setValue(new double[] { 5, 33, 100, 15, 20 });
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
+	public void update() {
+		for (int i = 0; i < model.getValue().length; i++) {
+			if (view.getArcs()[i].contains(x, y)) {
+
+				System.out.println("i =  " +i);
 			}
-
-           public void setX(int x) {
-				this.x = x;
-			}
-			public int getY() {
-				return y;
-			}
-
-		   public void setY(int y) {
-			this.y = y;
-		    }
-		   
-		   
-		   public void update(){
-			   System.out.println("x  "+getX());
-			     System.out.println("y  "+getY()); 
-		   }
-		   
-		   
-
-		public static void main(String[] argv) {
-			Controller controller = new Controller();
-		    JFrame frame = new JFrame();
-		     view= new View(model);
-		     frame.getContentPane().add(view);
-			 frame.setSize(600, 500);
-			 frame.setVisible(true);
-		     
-		  }
 		}
+
+	}
+
+	public static void main(String[] argv) {
+		Controller controller = new Controller();
+		JFrame frame = new JFrame();
+		view = new View(model);
+		frame.getContentPane().add(view);
+		frame.setSize(700, 600);
+		frame.setVisible(true);
+
+	}
+}
