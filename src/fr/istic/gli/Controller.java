@@ -2,7 +2,9 @@ package fr.istic.gli;
 
 import java.awt.Color;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTable;
 
 
 	public class Controller {
@@ -38,15 +40,22 @@ import javax.swing.JFrame;
 		   public void setY(int y) {
 			this.y = y;
 		    }
+		   
+		   
+		   public void update(){
+			   System.out.println("x  "+getX());
+			     System.out.println("y  "+getY()); 
+		   }
+		   
+		   
 
 		public static void main(String[] argv) {
 			Controller controller = new Controller();
 		    JFrame frame = new JFrame();
-		     
 		     view= new View(model);
 		     frame.getContentPane().add(view);
-			    frame.setSize(600, 500);
-			    frame.setVisible(true);
+			 frame.setSize(600, 500);
+			 frame.setVisible(true);
 		     
 		  }
 		}
